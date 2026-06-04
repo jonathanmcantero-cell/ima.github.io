@@ -18,6 +18,7 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import logoUrl from './assets/logo-ima.jpg';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -120,7 +121,7 @@ export default function App() {
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
               <div className="flex items-center gap-3">
-                <img src="/logo-ima.jpg" alt="IMA Imprenta Gráfica Logo" className="h-12 w-auto object-contain rounded-md" />
+                <img src={logoUrl} alt="IMA Imprenta Gráfica Logo" className="h-12 w-auto object-contain rounded-md" />
                 <span className="font-display font-bold text-2xl tracking-tight hidden sm:block text-white">
                   IMA <span className="font-medium text-gray-400 text-lg">Imprenta Gráfica</span>
                 </span>
@@ -425,7 +426,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <img src="/logo-ima.jpg" alt="IMA Imprenta Gráfica Logo" className="h-10 w-auto object-contain rounded-md" />
+                <img src={logoUrl} alt="IMA Imprenta Gráfica Logo" className="h-10 w-auto object-contain rounded-md" />
                 <span className="font-display font-bold text-xl tracking-tight text-white">IMA Imprenta Gráfica</span>
               </div>
               <p className="text-gray-400 max-w-sm">
