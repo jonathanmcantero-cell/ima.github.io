@@ -1,0 +1,6 @@
+{
+  "name": "IMA Imprenta Gráfica",
+  "description": "Sitio web para IMA Imprenta Gráfica que ofrece servicios de diseño, impresión y gráfica.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
