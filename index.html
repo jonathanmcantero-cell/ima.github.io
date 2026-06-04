@@ -1,132 +1,525 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMA Imprenta Gráfica</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMA Imprenta Gráfica</title>
+  <link rel="stylesheet" href="/src/index.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="logo-ima.jpg" alt="IMA Imprenta Gráfica Logo" class="logo-img">
-                <span class="logo-text">IMA <span class="logo-text-light">Imprenta Gráfica</span></span>
-            </div>
-            <div class="nav-links">
-                <a href="#servicios">Servicios</a>
-                <a href="#trabajos">Trabajos</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="https://wa.me/543513892956?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto." class="btn-primary" target="_blank">Contacto</a>
-            </div>
+<body class="min-h-screen font-sans text-white bg-primary-black selection:bg-primary-cyan selection:text-white antialiased">
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-primary-black/90 backdrop-blur-md z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <a href="#" class="flex-shrink-0 flex items-center cursor-pointer">
+          <div class="flex items-center gap-3">
+            <img src="/logo-ima.jpg" alt="IMA Imprenta Gráfica Logo" class="h-12 w-auto object-contain rounded-md" onerror="this.src='https://placehold.co/100x100/111/fff?text=IMA'"/>
+            <span class="font-display font-bold text-2xl tracking-tight hidden sm:block text-white">
+              IMA <span class="font-medium text-gray-400 text-lg">Imprenta Gráfica</span>
+            </span>
+            <span class="font-display font-bold text-2xl tracking-tight sm:hidden text-white">
+              IMA
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#servicios" class="text-gray-300 hover:text-primary-cyan transition-colors font-medium">Servicios</a>
+          <a href="#trabajos" class="text-gray-300 hover:text-primary-magenta transition-colors font-medium">Trabajos</a>
+          <a href="#nosotros" class="text-gray-300 hover:text-primary-yellow transition-colors font-medium">Nosotros</a>
+          <a href="https://wa.me/543513892956?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto." target="_blank" rel="noopener noreferrer" class="bg-white text-primary-black px-5 py-2.5 rounded-full font-medium hover:bg-gray-200 transition-colors flex items-center gap-2">
+            Contacto
+          </a>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Convertimos tu idea en <span class="text-gradient">papel</span></h1>
-            <p>Soluciones de diseño, impresión y gráfica para negocios, emprendimientos y eventos en Córdoba Capital.</p>
-            <div class="hero-buttons">
-                <a href="https://wa.me/543513892956" class="btn-primary" target="_blank">Solicitar Presupuesto</a>
-                <a href="#servicios" class="btn-secondary">Ver Servicios</a>
-            </div>
-            <div class="contact-info">
-                <span><i data-lucide="map-pin"></i> Córdoba Capital</span>
-                <span><i data-lucide="phone"></i> 351 3892956</span>
-                <span><i data-lucide="instagram"></i> @ima.imprenta.grafica</span>
-            </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-white p-2 rounded-md focus:outline-none">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          </button>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <!-- Nosotros Section -->
-    <section id="nosotros" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-title">¿Por qué elegirnos?</h2>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <i data-lucide="check-circle-2"></i>
-                    <span>Atención personalizada</span>
-                </div>
-                <div class="advantage-card">
-                    <i data-lucide="check-circle-2"></i>
-                    <span>Diseños a medida</span>
-                </div>
-                <div class="advantage-card">
-                    <i data-lucide="check-circle-2"></i>
-                    <span>Calidad profesional</span>
-                </div>
-                <div class="advantage-card">
-                    <i data-lucide="check-circle-2"></i>
-                    <span>Entregas rápidas</span>
-                </div>
-            </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-primary-black border-b border-white/10 overflow-hidden transition-all duration-300">
+      <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center shadow-lg">
+        <a href="#servicios" class="mobile-link block w-full py-3 text-center text-lg font-medium text-gray-300">Servicios</a>
+        <a href="#trabajos" class="mobile-link block w-full py-3 text-center text-lg font-medium text-gray-300">Trabajos</a>
+        <a href="#nosotros" class="mobile-link block w-full py-3 text-center text-lg font-medium text-gray-300">Nosotros</a>
+        <a href="https://wa.me/543513892956?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto." target="_blank" rel="noopener noreferrer" class="block w-full py-3 mt-4 text-center rounded-full text-lg font-medium bg-white text-primary-black mobile-link">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-hero-gradient">
+    <!-- CMYK Abstract Shapes -->
+    <div class="absolute top-20 right-0 w-64 h-64 bg-primary-cyan/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute top-40 left-10 w-72 h-72 bg-primary-magenta/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-10 right-40 w-80 h-80 bg-primary-yellow/10 rounded-full blur-3xl -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center max-w-4xl mx-auto fade-in-up">
+        <h1 class="font-display font-bold text-5xl md:text-7xl tracking-tighter mb-6 leading-tight">
+          Convertimos tu idea en <span class="text-gradient-cmyk">papel</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto">
+          Soluciones de diseño, impresión y gráfica para negocios, emprendimientos y eventos en Córdoba Capital.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://wa.me/543513892956?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-white text-primary-black px-8 py-4 rounded-full font-medium text-lg hover:shadow-xl hover:-translate-y-1 transition-all transform flex items-center justify-center gap-2 group">
+            Solicitar Presupuesto
+            <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <a href="#servicios" class="w-full sm:w-auto bg-primary-black border border-white/20 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white/10 transition-colors shadow-sm flex items-center justify-center">
+            Ver Servicios
+          </a>
         </div>
-    </section>
-
-    <!-- Servicios Section -->
-    <section id="servicios" class="section bg-darker">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card border-cyan">
-                    <div class="icon-box"><i data-lucide="pen-tool"></i></div>
-                    <h3>Diseño Gráfico</h3>
-                    <ul>
-                        <li>Logos</li><li>Flyers</li><li>Rediseños</li>
-                    </ul>
-                </div>
-                <div class="service-card border-magenta">
-                    <div class="icon-box"><i data-lucide="megaphone"></i></div>
-                    <h3>Publicidad</h3>
-                    <ul>
-                        <li>Folletos</li><li>Tarjetas</li><li>Stickers</li>
-                    </ul>
-                </div>
-                <div class="service-card border-yellow">
-                    <div class="icon-box"><i data-lucide="map-pin"></i></div>
-                    <h3>Cartelería</h3>
-                    <ul>
-                        <li>Lonas</li><li>Estructuras</li><li>Vinilos</li>
-                    </ul>
-                </div>
-                <div class="service-card border-cyan">
-                    <div class="icon-box"><i data-lucide="package"></i></div>
-                    <h3>Packaging</h3>
-                    <ul>
-                        <li>Etiquetas</li><li>Cajas</li><li>Bolsas</li>
-                    </ul>
-                </div>
-            </div>
+        
+        <!-- Contact Quick Info -->
+        <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-gray-400 font-medium fade-in">
+          <div class="flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-5 h-5 text-primary-cyan"></i>
+            Córdoba Capital – Alto Alberdi
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="phone" class="w-5 h-5 text-primary-magenta"></i>
+            <a href="https://wa.me/543513892956?text=..." class="hover:text-primary-magenta transition-colors">351 3892956</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="instagram" class="w-5 h-5 text-primary-yellow"></i>
+            <a href="https://instagram.com/ima.imprenta.grafica" target="_blank" rel="noopener noreferrer" class="hover:text-primary-yellow transition-colors">@ima.imprenta.grafica</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <img src="logo-ima.jpg" alt="Logo" class="logo-img">
-                <p>Tu socio gráfico. Calidad, diseño y rapidez.</p>
-            </div>
-            <div class="footer-links">
-                <p>&copy; 2026 IMA Imprenta Gráfica. Todos los derechos reservados.</p>
-            </div>
+  <!-- Why Choose Us -->
+  <section id="nosotros" class="py-20 bg-primary-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">¿Por qué elegirnos?</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary-cyan via-primary-magenta to-primary-yellow mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="scroll-reveal flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-colors" style="transition-delay: 0s">
+          <div class="flex-shrink-0 bg-white/10 rounded-full p-2">
+            <i data-lucide="check-circle-2" class="w-8 h-8 text-white"></i>
+          </div>
+          <span class="text-lg font-medium">Atención personalizada</span>
         </div>
-    </footer>
+        <div class="scroll-reveal flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-colors" style="transition-delay: 0.1s">
+          <div class="flex-shrink-0 bg-white/10 rounded-full p-2">
+            <i data-lucide="check-circle-2" class="w-8 h-8 text-white"></i>
+          </div>
+          <span class="text-lg font-medium">Diseños a medida</span>
+        </div>
+        <div class="scroll-reveal flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-colors" style="transition-delay: 0.2s">
+          <div class="flex-shrink-0 bg-white/10 rounded-full p-2">
+            <i data-lucide="check-circle-2" class="w-8 h-8 text-white"></i>
+          </div>
+          <span class="text-lg font-medium">Calidad profesional</span>
+        </div>
+        <div class="scroll-reveal flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-colors" style="transition-delay: 0.3s">
+          <div class="flex-shrink-0 bg-white/10 rounded-full p-2">
+            <i data-lucide="check-circle-2" class="w-8 h-8 text-white"></i>
+          </div>
+          <span class="text-lg font-medium">Entregas rápidas</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- WhatsApp Bubble -->
-    <a href="https://wa.me/543513892956" class="whatsapp-btn" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-        </svg>
-    </a>
+  <!-- Services Section -->
+  <section id="servicios" class="py-24 bg-gray-900 border-t border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Nuestros Servicios</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Soluciones integrales para cada necesidad de impresión y diseño.</p>
+      </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service 1 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-cyan transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="pen-tool" class="w-8 h-8 text-primary-cyan"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Diseño Gráfico</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Logos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Placas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Flyers</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Reels</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Videos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Rediseños</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Todo tipo de diseños</span></li>
+          </ul>
+        </div>
+        <!-- Service 2 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0.05s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-magenta transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="megaphone" class="w-8 h-8 text-primary-magenta"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Publicidad</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Folletos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Tarjetas personales</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Stickers</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Afiches</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Posters</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Banderas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Planchas troqueladas</span></li>
+          </ul>
+        </div>
+        <!-- Service 3 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0.1s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-yellow transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="map-pin" class="w-8 h-8 text-primary-yellow"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Cartelería</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Carteles</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Lona</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Estructuras</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Vidrieras</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Vinilos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Fly banners</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Pasacalles</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Corpóreas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Instalaciones</span></li>
+          </ul>
+        </div>
+        <!-- Service 4 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0.15s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-cyan transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="package" class="w-8 h-8 text-primary-cyan"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Packaging</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Etiquetas simples</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Etiquetas autoadhesivas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Cajas simples</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Papel kraft</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Hang tags</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Sticker cierrabolsa</span></li>
+          </ul>
+        </div>
+        <!-- Service 5 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-magenta transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="file-text" class="w-8 h-8 text-primary-magenta"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Papelería Comercial</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Taloneras</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Planillas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Sobres empresariales</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Anotadores</span></li>
+          </ul>
+        </div>
+        <!-- Service 6 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0.05s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-yellow transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="party-popper" class="w-8 h-8 text-primary-yellow"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Deco para Eventos</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Cumpleaños</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Bautismos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Fiestas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Guirnaldas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Souvenirs</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Centros de mesa</span></li>
+          </ul>
+        </div>
+        <!-- Service 7 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0.1s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-cyan transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="book-open" class="w-8 h-8 text-primary-cyan"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Editorial</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Encuadernados</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Cuadernillos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Apuntes</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Revistas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Manuales</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Catálogos</span></li>
+          </ul>
+        </div>
+        <!-- Service 8 -->
+        <div class="scroll-reveal bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 relative overflow-hidden group" style="transition-delay: 0.15s">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-magenta transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <div class="bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="layers" class="w-8 h-8 text-primary-magenta"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Servicios Varios</h3>
+          <ul class="space-y-1 mt-4">
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Fotos normales</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Fotos polaroid</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Sellos</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>DTF</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Carta menú</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Individuales de mesa</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Diplomas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Cartas</span></li>
+            <li class="text-gray-400 flex items-start gap-2 text-sm"><span class="text-gray-600 mt-0.5 text-xs">•</span><span>Ploteos</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="trabajos" class="py-24 bg-primary-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Galería de Trabajos</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Te mostramos un poco de lo que hacemos con dedicación y calidad.</p>
+      </div>
+
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/5 h-64 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Tarjetas Personales</h3>
+          </div>
+        </div>
+        
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/10 h-80 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0.1s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Packaging</h3>
+          </div>
+        </div>
+        
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/5 h-48 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0.2s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Etiquetas</h3>
+          </div>
+        </div>
+        
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/10 h-72 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0.3s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Cartelería</h3>
+          </div>
+        </div>
+        
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/5 h-60 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0.4s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Menús</h3>
+          </div>
+        </div>
+        
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/10 h-56 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0.5s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Diplomas</h3>
+          </div>
+        </div>
+        
+        <div class="scroll-reveal w-full rounded-2xl overflow-hidden relative group cursor-pointer bg-white/5 h-64 flex flex-col items-center justify-center border border-white/5" style="transition-delay: 0.6s">
+          <i data-lucide="printer" class="w-12 h-12 text-gray-600 mb-4"></i>
+          <span class="font-display font-medium text-gray-500">Imagen de muestra</span>
+          <div class="absolute inset-0 bg-primary-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+            <h3 class="text-white font-bold text-xl drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform">Polaroids</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+         <a href="https://instagram.com/ima.imprenta.grafica" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary-cyan font-medium hover:text-cyan-400 transition-colors">
+            Ver más en nuestro Instagram <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-gray-900 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4 text-white">Lo que dicen nuestros clientes</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10">
+          <div class="mb-6"><div class="text-5xl font-serif text-white/10 leading-none h-8">"</div></div>
+          <p class="text-gray-300 text-lg mb-8 italic">"La calidad de las etiquetas y el packaging superó mis expectativas. ¡Súper recomendados!"</p>
+          <div>
+            <h4 class="font-bold text-white">Laura Gómez</h4>
+            <p class="text-sm font-medium text-primary-cyan">Emprendedora</p>
+          </div>
+        </div>
+        <div class="bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10">
+          <div class="mb-6"><div class="text-5xl font-serif text-white/10 leading-none h-8">"</div></div>
+          <p class="text-gray-300 text-lg mb-8 italic">"Hicimos las cartas menú y la cartelería con IMA. Excelente asesoramiento y tiempos de entrega."</p>
+          <div>
+            <h4 class="font-bold text-white">Martín Rodríguez</h4>
+            <p class="text-sm font-medium text-primary-magenta">Dueño de Restaurante</p>
+          </div>
+        </div>
+        <div class="bg-primary-black p-8 rounded-3xl shadow-sm border border-white/10">
+          <div class="mb-6"><div class="text-5xl font-serif text-white/10 leading-none h-8">"</div></div>
+          <p class="text-gray-300 text-lg mb-8 italic">"Siempre confío en ellos para la deco y papelería de mis eventos. La atención es impecable."</p>
+          <div>
+            <h4 class="font-bold text-white">Sofía Fernández</h4>
+            <p class="text-sm font-medium text-primary-yellow">Organizadora de Eventos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 relative overflow-hidden bg-primary-black text-white">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary-cyan rounded-full blur-[100px]"></div>
+      <div class="absolute top-20 right-0 w-80 h-80 bg-primary-magenta rounded-full blur-[100px]"></div>
+      <div class="absolute -bottom-40 left-40 w-96 h-96 bg-primary-yellow rounded-full blur-[100px]"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center z-10">
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+        ¿Tenés una idea?<br/>Nosotros la convertimos en papel.
+      </h2>
+      <a href="https://wa.me/543513892956?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto." target="_blank" rel="noopener noreferrer" class="inline-flex bg-white text-primary-black px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all transform items-center gap-3 group">
+        Solicitar presupuesto ahora
+        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-primary-yellow transition-colors">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary-black border-t border-white/10 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="/logo-ima.jpg" alt="IMA Imprenta Gráfica Logo" class="h-10 w-auto object-contain rounded-md" onerror="this.src='https://placehold.co/100x100/111/fff?text=IMA'" />
+            <span class="font-display font-bold text-xl tracking-tight text-white">IMA Imprenta Gráfica</span>
+          </div>
+          <p class="text-gray-400 max-w-sm">
+            Tu socio gráfico. Calidad, diseño y rapidez para destacar tu marca.
+          </p>
+        </div>
+        
+        <div class="flex flex-col space-y-4 text-gray-400">
+          <div class="flex items-start gap-4">
+            <i data-lucide="map-pin" class="w-6 h-6 text-gray-500 mt-1 flex-shrink-0"></i>
+            <div>
+              <h4 class="font-medium text-white">Ubicación</h4>
+              <p>Alto Alberdi, Córdoba Capital<br/>Argentina</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <i data-lucide="phone" class="w-6 h-6 text-gray-500 flex-shrink-0"></i>
+            <div>
+              <h4 class="font-medium text-white">WhatsApp</h4>
+              <a href="https://wa.me/543513892956?text=..." class="hover:text-primary-magenta transition-colors hover:text-white">351 3892956</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <i data-lucide="instagram" class="w-6 h-6 text-gray-500 flex-shrink-0"></i>
+            <div>
+              <h4 class="font-medium text-white">Instagram</h4>
+              <a href="https://instagram.com/ima.imprenta.grafica" target="_blank" rel="noopener noreferrer" class="hover:text-primary-yellow transition-colors hover:text-white">@ima.imprenta.grafica</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">
+          &copy; <span id="year"></span> IMA Imprenta Gráfica. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/543513892956?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] hover:scale-110 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group border border-white/10" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <!-- Custom Scripts -->
+  <script>
+    // Set dynamic current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.setAttribute('data-lucide', 'x');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons(); // Refresh icon specifically for X/Menu toggle
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMenu();
+      });
+    });
+
+    // Intersection Observer for scroll reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Unobserve after revealing once
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
-
